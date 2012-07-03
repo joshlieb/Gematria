@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<html dir="rtl">
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="Gimatriyah.css">
+	<title>Gimatriyah Calculater</title>
+</head>
+<body>
+	<form>
+		<table border="4">
+			<thead>
+				<tr>
+					<th>תיבות</th>
+		    </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="tdipt">
+						<textarea id="input" placeholder="לייגט אריין אייער ווערטער" rows="10"cols="30"></textarea><br>
+					</td>
+				</tr>
+				<tr>
+					<td><br>
+						<center>
+							<label>די טאטאל גימטריא איז: </label>
+							<label id="total" ></label><br><br>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<label for="alepBais">א, ב.</label>
+							<input type="radio" name="gematriaType" value="a,b" title='א, ב.' id="alepBais" class="changeValue"/>
+							<label for="menatzpech">מנצפ"ך</label>
+							<input type="radio" name="gematriaType" value="mnptc" title='מנצפ"ך' id="menatzpech" class="changeValue"/>
+							<label for="atBash">א"ת ב"ש</label>
+							<input type="radio" name="gematriaType" value="atBash" title='א"ת ב"ש' id="atBash" class="changeValue"/>
+							<label for="koton">קטן</label>
+							<input type="checkbox" name="gematriaType" value="koton" title="קטן" id="koton" class="changeValue"/>
+							<br><button type="button" name="clear" value="Reset" id="clear">ריסעט</button>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<label id="pgh">די גימטריא איז אנגעשטעלט אויף:<br></label>
+							<label id="gematriaType">א, ב.</label>
+						</center>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="Values.js"></script>
+	<script type="text/javascript" src="setValues.js"></script>
+	<script type="text/javascript" src="Gimatriyah.js"></script>
+</body>
+</html>
