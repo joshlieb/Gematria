@@ -1,38 +1,50 @@
-var myString;
-function results()
-{
-	var temp =	$("#input").val();
-	myString = "";
-	var total = 0;
+var myString = "";
+var input = $("#input");
+var total = 0;
 
-	for ( var i = 0; i < temp.length; i++ )
+function convert (e) {
+	var cursorPostition = this.selectionStart;
+	var character = String.fromCharCode(e.charCode);
+	var toUpperCase = character.toUpperCase();
+
+	if (values[character])
 	{
-		var character = temp.charAt(i);
-		toUpperCase = character.toUpperCase();
-
-		if (values[character]) 
-		{
-			myString += character;
-			total += values[character];
-		}
-		else if (character === " ")
-		{
-			myString += " ";
-		}
-		else if (englishToHebrew[toUpperCase])
-		{
-			character = englishToHebrew[toUpperCase];
-			myString += character;
-			total += values[character];
-		}
-		else if (character === "'" || character === '"' || character === ",")
-		{
-			myString += character;
-		}
+		this.setRangeText(character);
+		this.setSelectionRange(++cursorPostition, cursorPostition);
 	}
-	$("#input").val(myString);
+
+	else if (character === " ")
+	{
+		this.setRangeText(character);
+		this.setSelectionRange(++cursorPostition, cursorPostition);
+	}
+
+	else if (englishToHebrew[toUpperCase])
+	{
+		character = englishToHebrew[toUpperCase];
+
+		this.setRangeText(character);
+		this.setSelectionRange(++cursorPostition, cursorPostition);
+	}
+
+	results();
+
+	return false;
+}
+
+function results(num)
+{
+	var i = 0,
+		val = input.val(),
+		len = val.length;
+
+	total = 0;
+
+	for ( ; i < len; i++) {
+		total += values[val[i]];
+	}
+
 	$("#total").html(total);
 };
 
-$("input").click(results);
-$("#input").keyup(results);
+input.keypress(convert);
