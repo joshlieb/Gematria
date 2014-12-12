@@ -41,10 +41,14 @@ function results(num)
 	total = 0;
 
 	for ( ; i < len; i++) {
-		total += values[val[i]];
+		total += values[val[i]] || 0;
 	}
 
 	$("#total").html(total);
 };
 
-input.keypress(convert);
+input
+	.on('keypress', convert)
+	.on('keyup', function (e) {
+		if (e.keyCode == 8) results();
+	});
