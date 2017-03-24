@@ -12,13 +12,11 @@ function convert (e) {
 		this.setRangeText(character);
 		this.setSelectionRange(++cursorPostition, cursorPostition);
 	}
-
 	else if (character === " ")
 	{
 		this.setRangeText(character);
 		this.setSelectionRange(++cursorPostition, cursorPostition);
 	}
-
 	else if (englishToHebrew[toUpperCase])
 	{
 		character = englishToHebrew[toUpperCase];
@@ -32,8 +30,7 @@ function convert (e) {
 	return false;
 }
 
-function results(num)
-{
+function results(num) {
 	var i = 0,
 		val = input.val(),
 		len = val.length;
